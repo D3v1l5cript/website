@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="tyles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
         body {
@@ -74,6 +74,12 @@
             font-size: 16px;
         }
 
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
         .button-container {
             margin-top: 20px;
         }
@@ -101,7 +107,7 @@
             Your browser does not support the video tag.
         </video>
         <div class="login-container">
-            <form onsubmit="login(event)" class="login-form">
+            <form id="loginForm" class="login-form">
                 <h2>Login</h2>
                 <div class="input-group">
                     <label for="username">Username</label>
@@ -111,29 +117,14 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
+                <div id="errorMessage" class="error-message"></div>
                 <div class="button-container">
-                    <button type="submit">Summon</button>
+                    <button type="button" onclick="login()">Summon</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <script>
-        function login(event) {
-            event.preventDefault(); // Prevent form submission
-            
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            
-            // Check if username and password are correct
-            if (username === 'darksatan' && password === 'satanic') {
-                // Redirect to dashboard
-                window.location.href = 'dashboard.html';
-            } else {
-                // Display error message
-                alert('You are not allowed, bitch!');
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
