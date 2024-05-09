@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tyles.css">
     <style>
         /* General Styles */
         body {
@@ -74,12 +74,6 @@
             font-size: 16px;
         }
 
-        .error-message {
-            color: #ff0000;
-            margin-top: 5px;
-            font-size: 14px;
-        }
-
         .button-container {
             margin-top: 20px;
         }
@@ -107,7 +101,7 @@
             Your browser does not support the video tag.
         </video>
         <div class="login-container">
-            <form id="loginForm" class="login-form">
+            <form onsubmit="login(event)" class="login-form">
                 <h2>Login</h2>
                 <div class="input-group">
                     <label for="username">Username</label>
@@ -117,9 +111,8 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div id="errorMessage" class="error-message"></div>
                 <div class="button-container">
-                    <button type="button" onclick="login()">Summon</button>
+                    <button type="submit">Summon</button>
                 </div>
             </form>
         </div>
@@ -128,3 +121,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+    
