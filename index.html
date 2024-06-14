@@ -145,6 +145,58 @@
             margin-bottom: 10px;
             color: #ff3d00;
         }
+
+        @keyframes trainAnimation {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .tools-grid {
+            display: flex;
+            overflow: hidden;
+            justify-content: space-between;
+        }
+        .tools-grid img {
+            animation: trainAnimation 20s linear infinite;
+            margin-right: 10px; /* Adjust the spacing between logos */
+            width: 109px; /* Adjust the size of the logos */
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .tools-grid img:hover {
+            transform: scale(1.2);
+        }
+        .tools-grid img[data-tooltip] {
+            position: relative;
+        }
+        .tools-grid img[data-tooltip]::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            color: #fff;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .tools-grid img:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+        .tools-grid:hover img {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body>
@@ -163,6 +215,9 @@
                 <a href="https://www.instagram.com/_darksatan._/"><i class="fab fa-instagram"></i></a>
                 <a href="https://twitter.com/_darksatan_"><i class="fab fa-twitter"></i></a>
             </div>
+            <button id="muteButton" class="contact-btn" onclick="toggleMute()">
+                <i class="fas fa-volume-off"></i>
+            </button>
         </div>
     </header>
 
@@ -194,7 +249,6 @@
     		    <li>Cloud Security</li>
     		    <li>IoT (Internet of Things) Security</li>
 	       </ul>
-
             </div>
 
             <div class="section learning animate__animated animate__fadeIn">
@@ -213,6 +267,26 @@
                 <h2>Get In Touch</h2>
                 <p>Have questions or need assistance with cybersecurity? Feel free to reach out!</p>
                 <a href="mailto:help@darksatan.site" class="contact-btn">Email Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="kali-tools content">
+        <div class="container">
+            <div class="section tools animate__animated animate__fadeIn">
+                <div class="tools-grid">
+                    <img src="images/tool-logo-aircrack-ng.svg" alt="Aircrack-ng" data-tooltip="Aircrack-ng">
+                    <img src="images/tool-logo-burp.svg" alt="Burp Suite" data-tooltip="Burp Suite">
+                    <img src="images/tool-logo-hydra.svg" alt="Hydra" data-tooltip="Hydra">
+                    <img src="images/tool-logo-john.svg" alt="John the Ripper" data-tooltip="John the Ripper">
+                    <img src="images/tool-logo-maltego.svg" alt="Maltego" data-tooltip="Maltego">
+                    <img src="images/tool-logo-metasploit.svg" alt="Metasploit Framework" data-tooltip="Metasploit Framework">
+                    <img src="images/tool-logo-nmap.svg" alt="Nmap" data-tooltip="Nmap">
+                    <img src="images/tool-logo-responder.svg" alt="Responder" data-tooltip="Responder">
+                    <img src="images/tool-logo-sqlmap.svg" alt="sqlmap" data-tooltip="sqlmap">
+                    <img src="images/tool-logo-wireshark.svg" alt="Wireshark" data-tooltip="Wireshark">
+                    <img src="images/tool-logo-ffuf.svg" alt="ffuf" data-tooltip="ffuf">
+                </div>
             </div>
         </div>
     </section>
@@ -243,3 +317,4 @@
         }
     </script>
 </body>
+</html>
