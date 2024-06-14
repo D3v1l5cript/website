@@ -8,14 +8,17 @@
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0KbM/FfjVsFvfjKb4dw2XhdsCpXd0LfUyY0sdy5l3QadIex8bB+1Vi3f5fIXVWYPrCTf4+gkxg6Ee3LzBW62gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Include Google Fonts for font styling -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         body {
             background-color: #1a1a1a;
             color: #ffffff;
-            font-family: 'Merriweather', serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         .header {
             position: relative;
@@ -49,7 +52,7 @@
         }
         .name {
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: #ff3d00;
             transition: all 0.5s ease;
         }
@@ -61,28 +64,36 @@
         }
         .contact-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #ff3d00;
             color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            border: 2px solid #ff3d00;
         }
         .contact-btn:hover {
-            background-color: #d50000;
+            background-color: transparent;
+            color: #ff3d00;
         }
         .instagram-btn {
             margin-left: 10px;
             color: #ff3d00;
             font-size: 24px;
             text-decoration: none;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
         }
         .about,
         .expertise,
         .learning,
-        .involvement {
+        .involvement,
+        .contact {
             margin-bottom: 80px;
+            text-align: center;
         }
         h2 {
             font-size: 36px;
@@ -98,6 +109,42 @@
             font-size: 18px;
             margin-bottom: 10px;
         }
+        .quote {
+            font-style: italic;
+            color: #ccc;
+            margin-top: 20px;
+        }
+        .social-links {
+            margin-top: 40px;
+        }
+        .social-links a {
+            font-size: 24px;
+            color: #ff3d00;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #d50000;
+        }
+        .content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 50px 0;
+        }
+        .section {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 80px 0;
+        }
+        .custom-logo {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .custom-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #ff3d00;
+        }
     </style>
 </head>
 <body>
@@ -110,46 +157,74 @@
         </div>
         <div class="container">
             <h1 class="name animate__animated animate__fadeInDown">DarkSatan</h1>
-            <a href="login.html" class="contact-btn animate__animated animate__fadeInUp">Login</a>
-            <a href="login.html" class="instagram-btn animate__animated animate__fadeInUp"><i class="fab fa-instagram"></i></a>
-            <p class="subtitle animate__animated animate__fadeIn">Penetration Tester & Network Security Specialist</p>
-        </div>
-        <div class="mute-btn">
+            <p class="subtitle animate__animated animate__fadeIn">Cybersecurity Enthusiast</p>
+            <div class="social-links animate__animated animate__fadeInUp">
+                <a href="https://github.com/DarkSatan"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/_darksatan._/"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/_darksatan_"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
     </header>
 
     <section class="content">
         <div class="container">
-            <div class="section about animate__animated animate__fadeInLeft">
+            <div class="section about animate__animated animate__fadeIn">
                 <h2>About Me</h2>
-                <p>Hi, I'm DarkSatan, a cybersecurity enthusiast with a focus on penetration testing and network security. I am passionate about continuously learning new hacking techniques and expanding my knowledge in cybersecurity frameworks.</p>
-                <p>I'm also actively involved in contributing to open-source security projects and exploring the realms of the deep and dark web to stay ahead of emerging threats.</p>
+                <p>Hi, I'm DarkSatan, a cybersecurity enthusiast dedicated to exploring and securing digital landscapes. My passion lies in understanding vulnerabilities and mitigating risks.</p>
+                <p>I am committed to continuous learning and staying updated with the latest cybersecurity trends and technologies.</p>
+                <p class="quote">"Protecting data one byte at a time."</p>
             </div>
 
-            <div class="section expertise animate__animated animate__fadeInRight">
-                <h2>Expertise</h2>
+            <div class="section expertise animate__animated animate__fadeIn">
+                <h2>Areas of Focus</h2>
                 <ul>
-                    <li>Penetration Testing</li>
-                    <li>Network Security</li>
-                    <li>Web Development</li> <!-- Add Web Development expertise -->
-                </ul>
+    	            <li>Penetration Testing</li>
+    		    <li>Network Security</li>
+    		    <li>Vulnerability Assessment</li>
+    		    <li>Incident Response</li>
+    		    <li>Security Awareness Training</li>
+    		    <li>Ethical Hacking</li>
+    		    <li>Web Application Security</li>
+   	 	    <li>Cryptography</li>
+    		    <li>Malware Analysis</li>
+    		    <li>Threat Intelligence</li>
+    		    <li>Security Operations Center (SOC) Monitoring</li>
+    		    <li>Cybersecurity Governance and Compliance</li>
+    		    <li>Wireless Network Security</li>
+    		    <li>Cloud Security</li>
+    		    <li>IoT (Internet of Things) Security</li>
+	       </ul>
+
             </div>
 
-            <div class="section learning animate__animated animate__fadeInLeft">
+            <div class="section learning animate__animated animate__fadeIn">
                 <h2>Continuous Learning</h2>
-                <p>I'm constantly learning new hacking techniques and expanding my knowledge in cybersecurity frameworks to stay updated with the latest trends and technologies.</p>
+                <p>I am actively enhancing my skills in ethical hacking techniques, malware analysis, and cryptographic protocols to stay ahead of evolving cyber threats.</p>
+                <p>Exploring AI-driven security solutions and blockchain technologies for enhanced data protection.</p>
             </div>
 
-            <div class="section involvement animate__animated animate__fadeInRight">
-                <h2>Involvement</h2>
-                <p>I actively contribute to open-source security projects and explore the deep and dark web to gain insights into emerging threats and vulnerabilities.</p>
+            <div class="section involvement animate__animated animate__fadeIn">
+                <h2>Community Involvement</h2>
+                <p>I contribute to cybersecurity forums, engage in bug bounty programs, and mentor aspiring cybersecurity professionals.</p>
+                <p>Collaborating on open-source projects to strengthen cybersecurity frameworks and promote information security best practices.</p>
+            </div>
+
+            <div class="section contact animate__animated animate__fadeIn">
+                <h2>Get In Touch</h2>
+                <p>Have questions or need assistance with cybersecurity? Feel free to reach out!</p>
+                <a href="mailto:help@darksatan.site" class="contact-btn">Email Me</a>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <a href="https://www.instagram.com/_darksatan._/" class="contact-btn animate__animated animate__fadeInUp">Any help Contact Me</a>
+            <div class="social-links animate__animated animate__fadeIn">
+                <a href="https://github.com/DarkSatan"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/_darksatan._/"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/_darksatan_"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 DarkSatan. All rights reserved.</p>
         </div>
     </footer>
 
@@ -168,4 +243,3 @@
         }
     </script>
 </body>
-</html>
