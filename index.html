@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - DarkSatan</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Include Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-0KbM/FfjVsFvfjKb4dw2XhdsCpXd0LfUyY0sdy5l3QadIex8bB+1Vi3f5fIXVWYPrCTf4+gkxg6Ee3LzBW62gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Include Google Fonts for font styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
-    <!-- Animate.css for animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         body {
             background-color: #1a1a1a;
@@ -23,41 +20,36 @@
         .header {
             position: relative;
             text-align: center;
-            padding: 100px 0;
-        }
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            padding: 0;
             overflow: hidden;
         }
         .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
             min-width: 100%;
             min-height: 100%;
             width: auto;
             height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
+            opacity: 0.8;
         }
         .container {
+            position: relative;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            transition: all 0.5s ease;
+            z-index: 1;
         }
         .name {
-            font-size: 48px;
+            font-size: 3.5rem;
             margin-bottom: 10px;
             color: #ff3d00;
             transition: all 0.5s ease;
         }
         .subtitle {
-            font-size: 24px;
+            font-size: 1.5rem;
             margin-bottom: 40px;
             color: #ff3d00;
             transition: all 0.5s ease;
@@ -80,45 +72,12 @@
             background-color: transparent;
             color: #ff3d00;
         }
-        .instagram-btn {
-            margin-left: 10px;
-            color: #ff3d00;
-            font-size: 24px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .about,
-        .expertise,
-        .learning,
-        .involvement,
-        .contact {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-        h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #ff3d00;
-            transition: all 0.5s ease;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .quote {
-            font-style: italic;
-            color: #ccc;
-            margin-top: 20px;
-        }
         .social-links {
             margin-top: 40px;
+            z-index: 1;
         }
         .social-links a {
-            font-size: 24px;
+            font-size: 2rem;
             color: #ff3d00;
             margin: 0 10px;
             transition: all 0.3s ease;
@@ -127,95 +86,110 @@
             color: #d50000;
         }
         .content {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #1a1a1a;
             padding: 50px 0;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
         }
         .section {
-            background-color: rgba(0, 0, 0, 0.7);
             padding: 80px 0;
+            text-align: center;
         }
-        .custom-logo {
-            display: block;
-            max-width: 100%;
-            height: auto;
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ff3d00;
+            transition: all 0.5s ease;
+        }
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
-        .custom-icon {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #ff3d00;
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-
-        @keyframes trainAnimation {
-            0% {
-                transform: translateX(-100%);
-            }
-            50% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        .section ul li {
+            font-size: 1.2rem;
+            margin: 0 20px;
+        }
+        .quote {
+            font-style: italic;
+            color: #ccc;
+            margin-top: 20px;
         }
         .tools-grid {
             display: flex;
-            overflow: hidden;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
         }
         .tools-grid img {
-            animation: trainAnimation 20s linear infinite;
-            margin-right: 10px; /* Adjust the spacing between logos */
-            width: 109px; /* Adjust the size of the logos */
-            height: auto;
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
             transition: transform 0.3s ease;
         }
         .tools-grid img:hover {
             transform: scale(1.2);
         }
-        .tools-grid img[data-tooltip] {
+        .footer {
+            background-color: #333;
+            padding: 20px 0;
+            text-align: center;
+            color: #ffffff;
             position: relative;
+            z-index: 1;
         }
-        .tools-grid img[data-tooltip]::before {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #000;
-            color: #fff;
-            padding: 5px;
-            border-radius: 3px;
-            font-size: 12px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
         }
-        .tools-grid img:hover::before {
-            opacity: 1;
-            visibility: visible;
-        }
-        .tools-grid:hover img {
-            animation-play-state: paused;
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .social-links a {
+                font-size: 1.5rem;
+            }
+            .section h2 {
+                font-size: 2rem;
+            }
+            .section p {
+                font-size: 1rem;
+            }
+            .section ul li {
+                font-size: 1rem;
+            }
+            .tools-grid img {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="video-container">
-            <video class="video-bg" autoplay loop muted id="bg-video">
-                <source src="video-background.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+        <video class="video-bg" autoplay loop muted>
+            <source src="video-background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="container">
             <h1 class="name animate__animated animate__fadeInDown">DarkSatan</h1>
             <p class="subtitle animate__animated animate__fadeIn">Cybersecurity Enthusiast</p>
             <div class="social-links animate__animated animate__fadeInUp">
-                <a href="https://github.com/DarkSatan"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/_darksatan._/"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/_darksatan_"><i class="fab fa-twitter"></i></a>
             </div>
-            </div>
+        </div>
     </header>
 
     <section class="content">
@@ -228,29 +202,27 @@
             </div>
 
             <div class="section expertise animate__animated animate__fadeIn">
-                <h2>Areas of Focus</h2>
+                <h2>SKILLS</h2>
                 <ul>
-    	            <li>Penetration Testing</li>
-    		    <li>Network Security</li>
-    		    <li>Vulnerability Assessment</li>
-    		    <li>Incident Response</li>
-    		    <li>Security Awareness Training</li>
-    		    <li>Ethical Hacking</li>
-    		    <li>Web Application Security</li>
-   	 	    <li>Cryptography</li>
-    		    <li>Malware Analysis</li>
-    		    <li>Threat Intelligence</li>
-    		    <li>Security Operations Center (SOC) Monitoring</li>
-    		    <li>Cybersecurity Governance and Compliance</li>
-    		    <li>Wireless Network Security</li>
-    		    <li>Cloud Security</li>
-    		    <li>IoT (Internet of Things) Security</li>
-	       </ul>
+                    <li>Penetration Testing</li>
+                    <li>Network Security</li>
+                    <li>Vulnerability Assessment</li>
+                    <li>Incident Response</li>
+                    <li>Security Awareness Training</li>
+                    <li>Ethical Hacking</li>
+                    <li>Web Application Security</li>
+                    <li>Cryptography</li>
+                    <li>python</li>
+                    <li>Threat Intelligence</li>
+                    <li>Wireless Network Security</li>
+                    <li>Cloud Security</li>
+                    <li>IoT (Internet of Things) Security</li>
+                </ul>
             </div>
 
             <div class="section learning animate__animated animate__fadeIn">
                 <h2>Continuous Learning</h2>
-                <p>I am actively enhancing my skills in ethical hacking techniques, malware analysis, and cryptographic protocols to stay ahead of evolving cyber threats.</p>
+                <p>I am actively enhancing my skills in ethical hacking techniques, Penetration Testing, and Wireless Security to stay ahead of evolving cyber threats.</p>
                 <p>Exploring AI-driven security solutions and blockchain technologies for enhanced data protection.</p>
             </div>
 
@@ -268,9 +240,10 @@
         </div>
     </section>
 
-    <section class="kali-tools content">
+    <section class="content kali-tools">
         <div class="container">
             <div class="section tools animate__animated animate__fadeIn">
+                <h2>Favorite Tools</h2>
                 <div class="tools-grid">
                     <img src="images/tool-logo-aircrack-ng.svg" alt="Aircrack-ng" data-tooltip="Aircrack-ng">
                     <img src="images/tool-logo-burp.svg" alt="Burp Suite" data-tooltip="Burp Suite">
@@ -283,6 +256,14 @@
                     <img src="images/tool-logo-sqlmap.svg" alt="sqlmap" data-tooltip="sqlmap">
                     <img src="images/tool-logo-wireshark.svg" alt="Wireshark" data-tooltip="Wireshark">
                     <img src="images/tool-logo-ffuf.svg" alt="ffuf" data-tooltip="ffuf">
+                    <img src="images/set-logo.svg" alt="SET" data-tooltip="Social Engineering Toolkit">
+                    <img src="images/recon-ng-logo.svg" alt="Recon-ng" data-tooltip="Recon-ng">
+                    <img src="images/reaver-logo.svg" alt="Reaver" data-tooltip="Reaver">
+                    <img src="images/kismet-logo.svg" alt="Kismet" data-tooltip="Kismet">
+                    <img src="images/hashcat-logo.svg" alt="Hashcat" data-tooltip="Hashcat">
+                    <img src="images/cewl-logo.svg" alt="CeWL" data-tooltip="CeWL">
+                    <img src="images/bettercap-logo.svg" alt="Bettercap" data-tooltip="Bettercap">
+                    <img src="images/amass-logo.svg" alt="Amass" data-tooltip="Amass">
                 </div>
             </div>
         </div>
@@ -291,27 +272,30 @@
     <footer class="footer">
         <div class="container">
             <div class="social-links animate__animated animate__fadeIn">
-                <a href="https://github.com/DarkSatan"><i class="fab fa-github"></i></a>
+                
                 <a href="https://www.instagram.com/_darksatan._/"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/_darksatan_"><i class="fab fa-twitter"></i></a>
+                
             </div>
             <p>&copy; 2024 DarkSatan. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
-        var video = document.getElementById("bg-video");
-        var muteButton = document.getElementById("muteButton");
+        gsap.registerPlugin(ScrollTrigger);
 
-        function toggleMute() {
-            if (video.muted) {
-                video.muted = false;
-                muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-            } else {
-                video.muted = true;
-                muteButton.innerHTML = '<i class="fas fa-volume-off"></i>';
-            }
-        }
+        gsap.utils.toArray(".animate__fadeIn").forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom-=200",
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
     </script>
 </body>
 </html>
